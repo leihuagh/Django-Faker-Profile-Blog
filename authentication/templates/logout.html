@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+Logout
+{% endblock head_title %}
+
+{% block main_contents %}
+<div class="container">
+    <div class="row">
+        <div class="col py-3 text-center">
+            <h1>You Are Logged Out</h1>
+            <p class="lead">Try to <a href="{% url 'login' %}">Login </a>again?</p>
+        </div>
+    </div>
+</div>
+
+{% endblock main_contents %}
