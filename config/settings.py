@@ -12,18 +12,16 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+try:
+    from .local_settings import DEBUG, SECRET_KEY, GOOGLE_MAP_API_KEY
+except ImportError:
+    pass
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'u8asi(idn+bry$d7h*!alm$%x=@inn(bqym#zpo0r)8s-fz*l+'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -134,4 +132,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
