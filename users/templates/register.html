@@ -1,9 +1,52 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block head_title %}
 Register
 {% endblock head_title %}
 
 {% block main_contents %}
-<h1>Register</h1>
+<div class="container">
+    <div class="row pt-4">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            <form method='POST'> {% csrf_token %}
+                <fieldset>
+                    <div class="form-group">
+                        <legend class="border-bottom">Join Today</legend>
+                        <div class="row">
+                            {% for field in form %}
+
+                            <div class="col-md-6 mb-3">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                <div class="invalid-feedback">
+                                    {% for error in field.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="pt-3">
+                <small class="text-muted">
+                    Already Have An Account? <a class="ml-2" href="#">Sign In</a>
+                </small>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
 {% endblock main_contents %}
